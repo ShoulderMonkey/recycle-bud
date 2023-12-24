@@ -10,7 +10,6 @@ export abstract class BaseController<Entity> {
 
     @Get()
     async getAll(){
-        
         return await this.service.find({})
     }
 
@@ -31,6 +30,8 @@ export abstract class BaseController<Entity> {
 
     @Post('findMany')
     async getMany(@Body()body: FindManyOptions){
+
+        console.log(body);
         return this.service.find(body)
     }
 

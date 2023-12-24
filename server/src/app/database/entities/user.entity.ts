@@ -1,24 +1,25 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { BaseEntity } from "./base-entities/base.entity";
+import { RecycledItem } from "./recycled-item.entity";
 
 @Entity({name: 'usr'})
 export class User extends BaseEntity {
-
-    @PrimaryGeneratedColumn()
-    id?: number;
     
-    @PrimaryColumn({ unique: true })
+    @PrimaryColumn()
     email: string;
 
     @Column({ nullable: true})
-    firstname: string;
+    firstname?: string;
 
     @Column({ nullable: true})
-    lastname: string;
+    lastname?: string;
 
     @Column({ nullable : true})
     password: string;
 
     @Column({default: true})
     isActive: boolean;
+
+    @OneToMany(() => RecycledItem, (recycledItem) => recycledItem.user, {nullable: true})
+    recycledItems?: RecycledItem[];
 }

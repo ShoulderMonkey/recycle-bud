@@ -29,7 +29,6 @@ export class AuthService {
     }
 
     const result = {
-      id: user.id,
       firstname: user.firstname,
       lastname: user.lastname,
       email: user.email,
@@ -51,9 +50,5 @@ export class AuthService {
       return {
         access_token: access_token
       };
-  }
-
-  generateToken(user: any) {
-    return this.jwtService.sign(user);
   }
 }

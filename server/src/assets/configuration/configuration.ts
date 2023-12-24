@@ -7,10 +7,12 @@ export const configuration = () => ({
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       schema: process.env.DATABASE_SCHEMA,
-      region: process.env.AWS_DB_REGION,
       dropSchema: false,
       logging: false,
       synchronize: true,
       migrationsRun:false
+    },
+    auth: {
+      secret: process.env.JWT_SECRET
     }
 })

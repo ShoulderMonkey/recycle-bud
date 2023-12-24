@@ -1,5 +1,7 @@
-
+@if(!isLoggedUser){
+    <recycle-bud-login></recycle-bud-login>
+}@else{
 <recycle-bud-frame>
     <router-outlet></router-outlet>
 </recycle-bud-frame>
-
+}

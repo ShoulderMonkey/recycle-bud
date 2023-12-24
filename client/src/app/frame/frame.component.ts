@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'recycle-bud-frame',
@@ -16,4 +17,10 @@ export class FrameComponent {
       map(result => result.matches),
       shareReplay()
     );
+
+    constructor(private authService: AuthService){}
+
+    logout(){
+      this.authService.removeJwtToken()
+    }
 }

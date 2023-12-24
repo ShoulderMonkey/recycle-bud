@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Edit you recycling!</h1>
+<mat-dialog-content>
+    <form [formGroup]="form">
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input matInput formControlName="description">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Quantity</mat-label>
+            <input matInput formControlName="quantity" inputmode="numeric">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="type">
+                @for (type of types; track $index) {
+                    <mat-option [value]="type">
+                        {{type}}
+                    </mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-icon-button (click)="save()"><mat-icon>save</mat-icon></button>
+    <button mat-icon-button [matDialogClose]="undefined"><mat-icon>close</mat-icon></button>
+</mat-dialog-actions>

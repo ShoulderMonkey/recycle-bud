@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 
@@ -8,6 +8,9 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 import { CryptoService } from './crypto';
 import { UserModule } from '../user/user.module';
+import { join } from 'path';
+import { readFileSync } from 'fs';
+
 @Module({
   imports: [
     UserModule,
@@ -17,8 +20,8 @@ import { UserModule } from '../user/user.module';
 
       useFactory: (config: ConfigService) => {
         return {
-          privateKey: AuthModule.readFile('./assets/keys/private.pem'),
-          publicKey: AuthModule.readFile('./assets/keys/public.pem'),
+          privateKey: readFileSync(join(__dirname, './assets/keys/private.pem')),
+          publicKey: readFileSync(join(__dirname, './assets/keys/public.pem')),
           signOptions: { algorithm: 'RS256' }
         };
       }
@@ -40,8 +43,8 @@ import { UserModule } from '../user/user.module';
 
 })
 export class AuthModule {
-  static readFile(path: string): String | Buffer | any {
-    const fs = require('fs');
-    return fs.readFileSync(path);
+  constructor(){
+    new Logger().debug(readFileSync(join(__dirname, './assets/keys/private.pem')));
+    
   }
 }

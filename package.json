@@ -2,7 +2,10 @@
   "name": "@recycle-bud/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "server": "npx nx run server:serve",
+    "client": "npx nx run client:serve"
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "~17.0.0",
@@ -75,9 +78,13 @@
     "axios": "^1.0.0",
     "bcrypt": "^5.1.1",
     "crypto-js": "^4.2.0",
+    "jwt-decode": "^4.0.0",
+    "ngx-cookie-service": "^17.0.1",
+    "ngx-toastr": "^18.0.0",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
+    "pg": "^8.11.3",
     "postgres": "^3.4.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",

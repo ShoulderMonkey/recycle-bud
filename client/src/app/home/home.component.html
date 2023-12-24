@@ -1,0 +1,16 @@
+<mat-card class="padding-10">
+    <mat-card-title>
+        Welcome {{loggedUser?.firstname}}
+    </mat-card-title>
+    <mat-card-subtitle>
+        Your have currently recylced this so far!!!
+    </mat-card-subtitle>
+    <mat-card-content>
+        @for (item of sortedItems; track item.type) {
+            {{ item.type }} -- {{item.total}}
+          } @empty {
+            Nothing recycled so far. Start now! <button mat-icon-button (click)="openAddModal()"><mat-icon>add</mat-icon></button>
+          }
+        
+    </mat-card-content>
+</mat-card>
