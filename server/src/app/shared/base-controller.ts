@@ -30,14 +30,11 @@ export abstract class BaseController<Entity> {
 
     @Post('findMany')
     async getMany(@Body()body: FindManyOptions){
-
-        console.log(body);
         return this.service.find(body)
     }
 
     @Post()
     async createOne(@Body()body: Entity){
-        console.log("CREATE baseController Body -> ", body)
         return this.service.createOne(body)
     }
 

@@ -24,8 +24,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, "jwt") {
   }
 
   async validate(payload: any) {
-    console.log("JWT STRATEGY",payload);
-    
+    this.logger.debug(`Token valid for user ${payload.email}`)
       const user = await this.usersService.repository.findOne({where: {email:payload.email}});
 
       if (!user) {

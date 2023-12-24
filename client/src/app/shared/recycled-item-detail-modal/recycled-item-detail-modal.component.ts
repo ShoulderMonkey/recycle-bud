@@ -33,7 +33,16 @@ export class RecycledItemDetailModalComponent {
 
       if(data){
         this.form.patchValue(data)
-        this.isNew = false
+
+        if(!data.user){
+          this.form.get('user')?.setValue(this.authService.getLoggedUser())
+        }
+        if(data.id){
+          this.isNew = false
+        }else{
+          this.isNew = true
+        }
+
       }else{
         this.form.get('user')?.setValue(this.authService.getLoggedUser())
         this.isNew = true
@@ -50,6 +59,7 @@ export class RecycledItemDetailModalComponent {
       
       saveObs$.subscribe(res => {
         //TODO: handle error or success message
+        this.dialogRef.close({saved: true})
       })
     }
 }

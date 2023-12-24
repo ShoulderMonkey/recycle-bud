@@ -1,16 +1,37 @@
-<mat-card class="padding-10">
-    <mat-card-title>
-        Welcome {{loggedUser?.firstname}}
-    </mat-card-title>
-    <mat-card-subtitle>
-        Your have currently recylced this so far!!!
-    </mat-card-subtitle>
-    <mat-card-content>
+<div class="grid">
+<mat-card class="padding-10 max-width-grid">
+    <mat-card-header>
+        <mat-card-title>
+            Welcome {{loggedUser?.firstname}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            Your have currently recylced this so far!!!
+            <button mat-icon-button
+            (click)="openAddModal()"><mat-icon>add</mat-icon></button>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="cards-container">
         @for (item of sortedItems; track item.type) {
-            {{ item.type }} -- {{item.total}}
-          } @empty {
-            Nothing recycled so far. Start now! <button mat-icon-button (click)="openAddModal()"><mat-icon>add</mat-icon></button>
-          }
-        
+            <mat-card>
+                <mat-card-header>
+                <mat-card-title>
+                    {{ item.type }}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                {{item.total}}
+                <button mat-icon-button
+                (click)="openAddModal(item.type)"><mat-icon>add</mat-icon></button>
+            </mat-card-content>
+            </mat-card>
+        } @empty {
+            Nothing recycled so far. Start now! 
+            <button mat-icon-button (click)="openAddModal()">
+                <mat-icon>add</mat-icon>
+            </button>
+        }
+
     </mat-card-content>
 </mat-card>
+
+</div>

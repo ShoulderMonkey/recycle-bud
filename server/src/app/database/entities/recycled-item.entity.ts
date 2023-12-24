@@ -3,7 +3,7 @@ import { User } from "./user.entity";
 
 export enum GarbageType{
     glass = 'glass',
-    plastic = 'pastic',
+    plastic = 'plastic',
     paper = 'paper'
 }
 

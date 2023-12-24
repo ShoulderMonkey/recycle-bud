@@ -105,3 +105,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .padding-10{
     padding: 10px
 }
+
+.grid{
+    display: grid;
+}
+
+
+@media screen and (min-width: 700px) {
+    .max-width-grid{
+        min-width: 700px;
+        place-self: center;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .max-width-grid{
+        //min-width: 800px;
+        place-self: center;
+    }
+}

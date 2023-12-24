@@ -66,7 +66,13 @@ export class HomeComponent implements OnInit {
   }
 
 
-  openAddModal() {
-    this.dialog.open(RecycledItemDetailModalComponent)
+  openAddModal(type?: string) {
+    const baseItem = type? {type: type}: null
+    this.dialog.open(RecycledItemDetailModalComponent, {data: baseItem}).afterClosed().subscribe({
+      next: (result)=> {
+        if(result && result.saved)
+        this.recycledItems$.subscribe()
+      }
+    })
   }
 }

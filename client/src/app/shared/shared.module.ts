@@ -8,6 +8,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { DataTableComponent } from './data-table/data-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { RouterModule } from '@angular/router';
 
 export const MATERIAL_MODULES = [
   MatDialogModule,
@@ -15,17 +22,24 @@ export const MATERIAL_MODULES = [
   MatIconModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule,
+  MatTooltipModule,
+  MatProgressSpinnerModule
 ]
 
 @NgModule({
   declarations: [
-    RecycledItemDetailModalComponent
+    RecycledItemDetailModalComponent,
+    DataTableComponent
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    RouterModule,
     MATERIAL_MODULES
   ]
 })

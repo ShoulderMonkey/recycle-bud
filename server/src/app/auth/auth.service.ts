@@ -15,15 +15,12 @@ export class AuthService {
   ) { }
 
   async validateUser(email: string, pass: string): Promise<any> {
-    this.logger.debug("VALIDATE USER")
     const user = await this.usersService.findByEmail(email);
     if (!user) {
       throw new UnauthorizedException(`User ${email} not found`);
     }
     let pwDecr = this.crypto.decrypt(user.password);
 
-    console.log("result hash compare --> ", this.crypto.hashCompare(pass, user.password));
-    // if (!this.crypto.hashCompare(pass, user.password)) {
     if (pass !== pwDecr) {
       throw new UnauthorizedException(`Wrong password`);
     }
