@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { AuthService } from '../../auth/auth.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'recycle-bud-register',
@@ -13,7 +15,9 @@ export class RegisterComponent {
   matcher = new MyErrorStateMatcher();
 
   constructor(
-    private fb: FormBuilder
+    public dialogRef: MatDialogRef<RegisterComponent>,
+    private fb: FormBuilder,
+    private authService: AuthService
   ){
     this.form = fb.group({
       email: [null, [Validators.required, Validators.email]],
@@ -23,6 +27,14 @@ export class RegisterComponent {
       confirmPassword: [null, Validators.required],
       isActive: true
     }, { validators: this.checkPasswords})
+  }
+
+  register(){
+    this.authService.register(this.form.getRawValue()).subscribe({
+      next: (res => {
+        this.dialogRef.close()
+      })
+    })
   }
 
   checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => { 

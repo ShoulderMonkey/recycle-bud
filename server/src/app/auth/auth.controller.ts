@@ -5,6 +5,8 @@ import { AuthGuard } from '@nestjs/passport';
 import { Response } from 'express';
 import { AuthService } from './auth.service';
 import { CryptoService } from './crypto';
+import { UserService } from '../user/user.service';
+import { User } from '../database/entities/user.entity';
 
 
 
@@ -24,12 +26,18 @@ export class AuthController {
   logger = new Logger(AuthController.name);
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
     ) { }
 
   @Post('login')
   @UseGuards(AuthGuard('local'))
   async login(@Request() req, @Body() credentials: Credentials): Promise<LoginResponse> {
     return this.authService.login(req.user);
+  }
+
+  @Post('register')
+  async register(@Body() user: User){
+    return this.userService.createOne(user)
   }
 }

@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from '../shared/shared.module';
 
 export const MATERIAL_MODULES = [
   MatCardModule,
@@ -17,6 +18,7 @@ export const MATERIAL_MODULES = [
   ],
   imports: [
     CommonModule,
+    SharedModule,
     MATERIAL_MODULES
   ]
 })

@@ -42,6 +42,10 @@ export class AuthService {
     )
   }
 
+  register(user: User){
+    return this.http.post(`${this.baseApiUrl}/register`, user)
+  }
+
   setToken(token: string, language: string = 'it'): void {
     this.cookieService.delete(this.authOptions.authCookieName!);
     const decodedToken = jwtDecode(token);
