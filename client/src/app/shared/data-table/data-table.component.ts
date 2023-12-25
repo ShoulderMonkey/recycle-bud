@@ -70,9 +70,6 @@ export class DataTableComponent implements OnInit, OnChanges, AfterViewInit, Aft
   @Output() rowSelected = new EventEmitter<any>();
   @Output() selectionChanged = new EventEmitter();
 
-  @Input()public service : any
-  @Input()public searchType : any
-
   input = new Subject<string>();
   inputValue$ = this.input.pipe(debounceTime(200), distinctUntilChanged());
   disableSearch: boolean = false;
@@ -178,11 +175,6 @@ export class DataTableComponent implements OnInit, OnChanges, AfterViewInit, Aft
     } else {
       this.data = this.dataSourcefiltered
     }
-  }
-
-  goTo(e: any){
-    console.log("evento click automcomplete --> ", e)
-    this.service.goTo(e)
   }
 
   applyFilter(event: any) {
