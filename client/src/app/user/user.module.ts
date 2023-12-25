@@ -7,10 +7,17 @@ import { UserResolverService } from './user-detail/user-resolver.service';
 import { SharedModule } from '../shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 const MATERIAL_MODULES = [
   MatIconModule,
-  MatButtonModule
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCardModule
 ]
 
 @NgModule({
@@ -21,6 +28,8 @@ const MATERIAL_MODULES = [
   imports: [
     CommonModule,
     UserRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     MATERIAL_MODULES
   ],

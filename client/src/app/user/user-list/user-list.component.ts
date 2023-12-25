@@ -83,6 +83,10 @@ export class UserListComponent implements OnInit {
   }
 
   delete(user: User){
-    this.userService.deleteOne(user.email)
+    this.userService.deleteOne(user.email).subscribe({
+      next: (res => {
+        this.ngOnInit()
+      })
+    })
   }
 }

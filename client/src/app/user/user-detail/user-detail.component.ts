@@ -3,86 +3,84 @@ import { of, tap } from 'rxjs';
 import { DatatableColumn, DatatableAction } from '../../shared/data-table/data-table.component';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'recycle-bud-user-detail',
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
-export class UserDetailComponent implements OnInit {
-  dataSource: User[] = []
+export class UserDetailComponent {
+  
+  form: FormGroup
+  matcher = new MyErrorStateMatcher();
 
-  users$ = this.userService.getAll().pipe(
-    tap(users => {
-      this.dataSource = users
-    })
-  )
-
-  displayedColumns = ['id', 'type', 'description', 'quantity']
-  columns: DatatableColumn<User>[] = [
-    {
-      name: 'email',
-      title: of('Email'),
-      value: item => item.email
-    },
-    {
-      name: 'firstname',
-      title: of('Firstname'),
-      value: item => item.firstname
-    },
-    {
-      name: 'lastname',
-      title: of('Lastname'),
-      value: item => item.lastname
-    },
-    {
-      name: 'isActive',
-      title: of('Active'),
-      type: 'icon',
-      value: item => item.isActive ? 'check' : 'cancel'
-    }
-  ]
-
-  actions: DatatableAction<User>[] = [
-    {
-      label: of(''),
-      onClick: item => this.openDetail(item),
-      color: 'primary',
-      icon: profile => {
-        return 'edit'
-      }
-    },
-    {
-      label: of(''),
-      onClick: item => this.delete(item),
-      color: 'primary',
-      icon: profile => {
-        return 'delete'
-      }
-    }
-  ]
+  user?: User
+  isNew: boolean = false
 
   constructor(
+    private fb: FormBuilder,
     private userService: UserService,
-    private router: Router
-  ) {
+    private route: ActivatedRoute
+  ){
+    this.form = fb.group({
+      email: [null, [Validators.required, Validators.email]],
+      firstname: null, 
+      lastname: null,
+      password: [null, Validators.required],
+      confirmPassword: [null, Validators.required],
+      isActive: true
+    }, { validators: this.checkPasswords})
 
+    route.data.subscribe({
+      next: (data => {
+        let user = data['user']
+        console.log('user', user);
+        
+        if(user){
+          this.isNew = false
+          this.form.patchValue({
+            ...user,
+            password: null,
+            confirmPassword: null
+          })
+
+          this.form.get('email')?.disable()
+        }else{
+          this.isNew = true
+        }
+      })
+    })
   }
 
-  ngOnInit(): void {
-    this.users$.subscribe()
+  save(){
+    let saveObs$
+      if(this.isNew){
+        saveObs$ = this.userService.createOne(this.form.getRawValue())
+      }else{
+        saveObs$ = this.userService.updateOne(this.form.getRawValue(),this.form.get('email')?.value)
+      }
+    saveObs$.subscribe({
+      next: (res => {
+
+      })
+    })
   }
 
-  openDetail(user: User){
-    this.router.navigate([`${user.email}`])
+  checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => { 
+    let pass = group.get('password')!.value;
+    let confirmPass = group.get('confirmPassword')!.value
+    return pass === confirmPass ? null : { notSame: true }
   }
+}
 
-  openNew(){
-    this.router.navigate([`new`])
-  }
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const invalidCtrl = !!(control?.invalid && control?.parent?.dirty);
+    const invalidParent = !!(control?.parent?.invalid && control?.parent?.dirty);
 
-  delete(user: User){
-    this.userService.deleteOne(user.email)
+    return invalidCtrl || invalidParent;
   }
 }
