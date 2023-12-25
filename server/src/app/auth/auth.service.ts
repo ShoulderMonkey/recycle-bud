@@ -29,7 +29,7 @@ export class AuthService {
       firstname: user.firstname,
       lastname: user.lastname,
       email: user.email,
-      hash: this.crypto.hash(`${user.email}`),
+      role: user.role
     };
     return result;
   }
@@ -40,7 +40,7 @@ export class AuthService {
       email: validatedUser.email,
       firstname: validatedUser.firstname,
       lastname: validatedUser.lastname,
-      hash: validatedUser.hash,
+      role: validatedUser.role
     };
     console.log('ValidatedUsers', validatedUser);
       const access_token = this.jwtService.sign(payload)

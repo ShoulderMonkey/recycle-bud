@@ -2,6 +2,11 @@ import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from
 import { BaseEntity } from "./base-entities/base.entity";
 import { RecycledItem } from "./recycled-item.entity";
 
+export enum Role{
+    ADMIN = 'admin',
+    USER = 'user'
+}
+
 @Entity({name: 'usr'})
 export class User extends BaseEntity {
     
@@ -19,6 +24,13 @@ export class User extends BaseEntity {
 
     @Column({default: true})
     isActive: boolean;
+
+    @Column({
+        type: 'enum',
+        enum: Role,
+        default: Role.USER
+    })
+    role: Role
 
     @OneToMany(() => RecycledItem, (recycledItem) => recycledItem.user, {nullable: true})
     recycledItems?: RecycledItem[];

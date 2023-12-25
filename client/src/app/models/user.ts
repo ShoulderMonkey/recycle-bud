@@ -1,3 +1,4 @@
+import { Role } from "./enums/role";
 import { RecycledItem } from "./recycled-item";
 
 export interface User {
@@ -6,5 +7,6 @@ export interface User {
     lastname?: string;
     password: string;
     isActive: boolean;
+    role: Role;
     recycledItems?: RecycledItem[];
 }

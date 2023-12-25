@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { BaseService } from '../shared/base-service';
 import { User } from '../database/entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { FindOptionsWhere, Repository } from 'typeorm';
 import { CryptoService } from '../auth/crypto';
 
 @Injectable()
@@ -33,6 +33,12 @@ export class UserService extends BaseService<User>{
     let pw = this.cryptoService.encrypt(req.password);
     req.password = pw;
     return super.createOne(req)
+  }
+  
+  async updateOne(criteria: FindOptionsWhere<User>, entity: any): Promise<any> {
+    let pw = this.cryptoService.encrypt(entity.password);
+    entity.password = pw;
+    return super.updateOne(criteria, entity)
   }
 
 }

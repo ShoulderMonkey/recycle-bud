@@ -1,4 +1,4 @@
-import { User } from "../../database/entities/user.entity";
+import { Role, User } from "../../database/entities/user.entity";
 
 export const USERS_SEED: User[] = [
     {
@@ -7,6 +7,7 @@ export const USERS_SEED: User[] = [
         "password": "sys",
         "email": "sys",
         "isActive": true,
+        role: Role.ADMIN
     },
 
 ]

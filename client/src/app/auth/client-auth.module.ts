@@ -3,10 +3,10 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 import { AuthOptions } from './auth-options';
-import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { JwtInterceptorService } from './jwt-interceptor.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminGuard } from './admin.guard';
 
 @NgModule({
   declarations: [],
@@ -22,7 +22,7 @@ export class ClientAuthModule {
         CookieService,
         AuthService,
         JwtInterceptorService,
-        AuthGuard
+        AdminGuard
       ]
     };
   }
@@ -30,7 +30,7 @@ export class ClientAuthModule {
   static forChild(): ModuleWithProviders<ClientAuthModule> {
     return {
       ngModule: ClientAuthModule,
-      providers: [AuthGuard, CookieService, AuthService]
+      providers: [AdminGuard, CookieService, AuthService]
     };
   }
 }

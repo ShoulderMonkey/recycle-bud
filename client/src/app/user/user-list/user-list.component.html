@@ -1,0 +1,14 @@
+<recycle-bud-data-table
+[data]="dataSource"
+[columns]="columns"
+[displayedColumns]="displayedColumns"
+[actions]="actions"
+sortActive="id"
+[dynamicColWidth]="true"
+[createButtonTemplate]="addButton">
+
+</recycle-bud-data-table>
+
+<ng-template #addButton>
+    <button mat-raised-button (click)="openNew()"><mat-icon>add</mat-icon> Add new User</button>
+</ng-template>

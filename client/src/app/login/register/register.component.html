@@ -17,14 +17,14 @@
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="New password" formControlName="password">
+            <input matInput placeholder="New password" type="password" formControlName="password">
             <mat-error *ngIf="form.hasError('required', 'password')">
               Please enter your new password
             </mat-error>
           </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Confirm password" formControlName="confirmPassword" [errorStateMatcher]="matcher">
+            <input matInput type="password" placeholder="Confirm password" formControlName="confirmPassword" [errorStateMatcher]="matcher">
             <mat-error *ngIf="form.hasError('notSame')">
               Passwords do not match
             </mat-error>  

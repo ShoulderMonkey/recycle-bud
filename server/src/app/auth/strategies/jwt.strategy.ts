@@ -29,19 +29,13 @@ export class JwtStrategy extends PassportStrategy(Strategy, "jwt") {
 
       if (!user) {
         throw new UnauthorizedException('User not found');
-      }
-
-      const chk = `${user.email}`;
-      if (!payload.hash || !this.cryptoService.hashCompare(chk, payload.hash)) {
-        throw new UnauthorizedException('Invalid hash');
-      }
-    
+      }    
 
     return {
       email: payload.email,
       firstname: payload.firstname,
       lastname: payload.lastname,
-      hash: payload.hash,
+      role: payload.role
     };
   }
 }

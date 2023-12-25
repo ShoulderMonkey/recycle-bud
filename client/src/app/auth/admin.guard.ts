@@ -3,9 +3,11 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import {jwtDecode} from 'jwt-decode';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { User } from '../models/user';
+import { Role } from '../models/enums/role';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -15,21 +17,18 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+    | Observable<boolean>
+    | Promise<boolean>
+    | boolean {
 
     let user = null;
     const token = this.authService.getJwtToken();
     if (token) {
-      user = jwtDecode(token);
+      user = jwtDecode(token) as User;
+      if(user.role === Role.ADMIN)
+      return true
     }
 
-    if (!user) {
-      this.router.navigate(['/login']);
-    }
-
-    return !!user;
+    return false;
   }
 }
