@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,8 +13,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
-import { DataTableComponent } from './data-table/data-table.component';
 import { RecycledItemDetailModalComponent } from './recycled-item-detail-modal/recycled-item-detail-modal.component';
+import { DataTableComponent } from './data-table/data-table.component';
 
 export const MATERIAL_MODULES = [
   MatDialogModule,
@@ -40,11 +40,15 @@ export const MATERIAL_MODULES = [
     ReactiveFormsModule,
     CommonModule,
     RouterModule,
+    DatePipe,
     MATERIAL_MODULES
   ],
   exports: [
     RecycledItemDetailModalComponent,
     DataTableComponent
+  ],
+  providers: [
+    DatePipe
   ]
 })
 export class SharedModule { }

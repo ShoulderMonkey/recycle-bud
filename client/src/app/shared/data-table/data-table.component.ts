@@ -47,7 +47,7 @@ export class DatatableAction<T> {
 }
 
 @Component({
-  selector: 'app-data-table',
+  selector: 'recycle-bud-data-table',
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.scss']
 })
@@ -117,8 +117,7 @@ export class DataTableComponent implements OnInit, OnChanges, AfterViewInit, Aft
 
   ngAfterViewChecked(): void {
     this.dynamicColWidth?
-      this.adjustColumns():
-      console.log()
+      this.adjustColumns():null
   }
 
   ngAfterContentChecked() {

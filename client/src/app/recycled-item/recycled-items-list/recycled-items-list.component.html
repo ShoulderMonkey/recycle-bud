@@ -1,8 +1,14 @@
-<app-data-table
+<recycle-bud-data-table
 [data]="dataSource"
 [columns]="columns"
 [displayedColumns]="displayedColumns"
 [actions]="actions"
-sortActive=""
->
-</app-data-table>
+sortActive="id"
+[dynamicColWidth]="true"
+[createButtonTemplate]="addButton">
+
+</recycle-bud-data-table>
+
+<ng-template #addButton>
+    <button mat-raised-button (click)="openDetail()"><mat-icon>add</mat-icon> Add new recycle</button>
+</ng-template>

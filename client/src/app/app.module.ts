@@ -23,6 +23,7 @@ import { RegisterComponent } from './login/register/register.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptorService } from './auth/jwt-interceptor.service';
 import { SharedModule } from './shared/shared.module';
+import { RecycledItemModule } from './recycled-item/recycled-item.module';
 
 const MATERIAL_MODULES = [
   MatIconModule,
@@ -46,6 +47,7 @@ const MATERIAL_MODULES = [
     FormsModule,
     ReactiveFormsModule,
     BrowserModule, 
+    RecycledItemModule,
     SharedModule,
     RouterModule.forRoot(appRoutes), 
     BrowserAnimationsModule,
