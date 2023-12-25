@@ -52,14 +52,6 @@ export class UserListComponent implements OnInit {
       icon: profile => {
         return 'edit'
       }
-    },
-    {
-      label: of(''),
-      onClick: item => this.delete(item),
-      color: 'primary',
-      icon: profile => {
-        return 'delete'
-      }
     }
   ]
 
@@ -80,13 +72,5 @@ export class UserListComponent implements OnInit {
 
   openNew(){
     this.router.navigate([`/user/new`])
-  }
-
-  delete(user: User){
-    this.userService.deleteOne(user.email).subscribe({
-      next: (res => {
-        this.ngOnInit()
-      })
-    })
   }
 }
