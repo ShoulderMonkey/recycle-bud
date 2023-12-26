@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 export const MATERIAL_MODULES = [
   MatCardModule,
@@ -17,6 +18,7 @@ export const MATERIAL_MODULES = [
     HomeComponent
   ],
   imports: [
+    TranslateModule,
     CommonModule,
     SharedModule,
     MATERIAL_MODULES

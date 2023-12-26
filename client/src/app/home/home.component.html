@@ -2,10 +2,10 @@
 <mat-card class="padding-10 max-width-grid">
     <mat-card-header>
         <mat-card-title>
-            Welcome {{loggedUser?.firstname}}
+            {{'Home.Welcome'|translate}} {{loggedUser?.firstname}}
         </mat-card-title>
         <mat-card-subtitle>
-            Your have currently recylced this so far!!!
+            {{'Home.Subtitle'|translate}}
             <button mat-icon-button
             (click)="openAddModal()"><mat-icon>add</mat-icon></button>
         </mat-card-subtitle>
@@ -25,7 +25,7 @@
             </mat-card-content>
             </mat-card>
         } @empty {
-            Nothing recycled so far. Start now! 
+            {{'Home.Translate'| translate}} 
             <button mat-icon-button (click)="openAddModal()">
                 <mat-icon>add</mat-icon>
             </button>

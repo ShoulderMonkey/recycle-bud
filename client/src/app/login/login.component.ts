@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterComponent } from './register/register.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'recycle-bud-login',

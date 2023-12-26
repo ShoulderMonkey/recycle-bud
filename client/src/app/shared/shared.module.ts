@@ -15,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { RecycledItemDetailModalComponent } from './recycled-item-detail-modal/recycled-item-detail-modal.component';
 import { DataTableComponent } from './data-table/data-table.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 export const MATERIAL_MODULES = [
   MatDialogModule,
@@ -36,6 +37,7 @@ export const MATERIAL_MODULES = [
     DataTableComponent
   ],
   imports: [
+    TranslateModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,

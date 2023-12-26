@@ -2,36 +2,38 @@
 <mat-dialog-content>
     <form [formGroup]="form" class="flex-column">
         <mat-form-field>
-          <mat-label>Email</mat-label>
+          <mat-label>{{'User.Fields.Email' | translate}}</mat-label>
             <input matInput formControlName="email">
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>First name</mat-label>
+          <mat-label>{{'User.Fields.Firstname' | translate}}</mat-label>
             <input matInput formControlName="firstname">
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Last name</mat-label>
+          <mat-label>{{'User.Fields.Lastname' | translate}}</mat-label>
             <input matInput formControlName="lastname">
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="New password" suggested="new-password" type="password" formControlName="password">
+          <mat-label>{{'User.Fields.Password' | translate}}</mat-label>
+            <input matInput suggested="new-password" type="password" formControlName="password">
             <mat-error *ngIf="form.hasError('required', 'password')">
-              Please enter your new password
+              {{'Register.Errors.Password'|translate}}
             </mat-error>
           </mat-form-field>
 
         <mat-form-field>
-            <input matInput type="password" placeholder="Confirm password" suggested="new-password" formControlName="confirmPassword" [errorStateMatcher]="matcher">
+          <mat-label>{{'User.Fields.PasswordConfirm' | translate}}</mat-label>
+            <input matInput type="password"  [errorStateMatcher]="matcher">
             <mat-error *ngIf="form.hasError('notSame')">
-              Passwords do not match
+              {{'Register.Errors.PasswordConfirm'|translate}}
             </mat-error>  
           </mat-form-field>
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="button-container">
-  <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="register()">Register</button>
-  <button mat-raised-button [matDialogClose]="false">Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="register()">{{'Login.Actions.Register' | translate}}</button>
+  <button mat-raised-button [matDialogClose]="false">{{'Login.Actions.Cancel' | translate}}</button>
 </mat-dialog-actions>

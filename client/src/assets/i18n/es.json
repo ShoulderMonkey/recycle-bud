@@ -1,0 +1,59 @@
+{
+    "Nav": {
+      "Menu": {
+        "Title": "Menú",
+        "Home": "Home",
+        "Transactions": "Actas",
+        "Users": "Usuarios"
+      }
+    },
+    "Login": {
+      "Title": "Acceso",
+      "Error": "Correo electrónico o contraseña no válidos",
+      "Actions": {
+        "Login": "Acceso",
+        "Register": "Registro",
+        "Cancel": "Cancelar"
+      }
+    },
+    "Register": {
+      "Errors": {
+        "Password": "Por favor ingrese su nueva contraseña",
+        "PasswordConfirm": "Las contraseñas no coinciden"
+      }
+    },
+    "Home": {
+      "Welcome": "Bienvenido",
+      "Subtitle": " ¡Has reciclado esto hasta ahora!",
+      "Nothing": "Nada reciclado hasta el momento.  "
+    },
+    "User": {
+      "Fields": {
+        "Email": "Correo electrónico",
+        "Password": "Contraseña",
+        "PasswordConfirm": "confirmar Contraseña",
+        "Firstname": "Nombre de pila",
+        "Lastname": "Apellido"
+      },
+      "Detail": {
+        "Title": {
+          "New": "Creación de nuevo usuario",
+          "Edit": "Actualización de detalles del usuario"
+        }
+      }
+    },
+    "RecycledItem": {
+      "Fields": {
+        "Id": "Identificación",
+        "Type": "Tipo",
+        "Description": "Descripción",
+        "Quantity": "Cantidad"
+      },
+      "Detail": {
+        "Title": "¡Edita tu reciclaje!"
+      },
+      "List": {
+        "Add": "Agregar nuevo reciclaje"
+      }
+    }
+  }

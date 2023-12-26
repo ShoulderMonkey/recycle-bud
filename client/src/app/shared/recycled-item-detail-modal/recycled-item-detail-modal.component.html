@@ -1,16 +1,16 @@
-<h1 mat-dialog-title>Edit you recycling!</h1>
+<h1 mat-dialog-title>{{'RecycledItem.Detail.Title'|translate}}</h1>
 <mat-dialog-content>
     <form [formGroup]="form" class="form-container">
         <mat-form-field>
-            <mat-label>Description</mat-label>
+            <mat-label>{{'RecycledItem.Fields.Description'|translate}}</mat-label>
             <input matInput formControlName="description">
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Quantity</mat-label>
+            <mat-label>{{'RecycledItem.Fields.Quantity'|translate}}</mat-label>
             <input matInput formControlName="quantity" inputmode="numeric">
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Type</mat-label>
+            <mat-label>{{'RecycledItem.Fields.Type'|translate}}</mat-label>
             <mat-select formControlName="type">
                 @for (type of types; track $index) {
                     <mat-option [value]="type">

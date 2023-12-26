@@ -1,29 +1,27 @@
 <mat-card class="padding-10">
   <mat-card-title>
-    <h1>Login</h1>
+    <h1>{{'Login.Title' | translate }}</h1>
   </mat-card-title>
   <mat-card-content>
     <form [formGroup]="form" class="flex-column">
       <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
+        <mat-label>{{'User.Fields.Email' | translate}}</mat-label>
         <!-- <mat-error *ngIf="form.get('email')?.hasError">
                   Inserisci un indirizzo email valido.
                 </mat-error> -->
         <input matInput formControlName="email" type="email">
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
+        <mat-label>{{'User.Fields.Password' | translate}}</mat-label>
         <input matInput type="password" formControlName="password">
-        <mat-icon matSuffix matTooltip="La password deve essere lunga almeno 8 caratteri,
-                 con almeno 1 lettera maiuscola, 1 numero e 1 carattere speciale.">info</mat-icon>
         <mat-error *ngIf="form.get('password')?.hasError && form.get('email')?.hasError">
-          email o password non valida
+         {{'Login.Error' | translate }}<!-- email o password non valida -->
         </mat-error>
       </mat-form-field>
     </form>
   </mat-card-content>
   <mat-card-actions class="button-container">
-    <button mat-raised-button color="primary" (click)="login()">Login</button>
-    <button mat-raised-button color="warn" (click)="openRegisterForm()">Register</button>
+    <button mat-raised-button color="primary" (click)="login()">{{'Login.Actions.Login' | translate}}</button>
+    <button mat-raised-button color="warn" (click)="openRegisterForm()">{{'Login.Actions.Register' | translate}}</button>
   </mat-card-actions>
 </mat-card>

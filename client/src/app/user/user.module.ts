@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { TranslateModule } from '@ngx-translate/core';
 
 const MATERIAL_MODULES = [
   MatIconModule,
@@ -28,6 +29,7 @@ const MATERIAL_MODULES = [
     UserDetailComponent
   ],
   imports: [
+    TranslateModule,
     CommonModule,
     UserRoutingModule,
     FormsModule,

@@ -1,0 +1,59 @@
+{
+    "Nav": {
+        "Menu": {
+            "Title": "Menu",
+            "Home":"Home",
+            "Transactions": "Transactions",
+            "Users": "Users"
+        }
+    },
+    "Login": {
+        "Title": "Login",
+        "Error": "Email or Password Invalid",
+        "Actions": {
+            "Login": "Login",
+            "Register": "Register",
+            "Cancel": "Cancel"
+        }
+    },
+    "Register": {
+        "Errors": {
+            "Password": "Please enter your new password",
+            "PasswordConfirm": "Passwords do not match"
+        }
+    },
+    "Home":{
+        "Welcome": "Welcome",
+        "Subtitle" :" Your have currently recylced this so far!!!",
+        "Nothing": "Nothing recycled so far. Start now! "
+    },
+    "User": {
+        "Fields": {
+            "Email": "Email",
+            "Password": "Password",
+            "PasswordConfirm": "Confirm Password",
+            "Firstname": "First name",
+            "Lastname": "Last name"
+        },
+        "Detail":{
+            "Title": {
+                "New": "New user creation",
+                "Edit": "User detail update"
+            }
+        }
+    },
+    "RecycledItem": {
+        "Fields": {
+            "Id": "Id",
+            "Type": "Type",
+            "Description": "Description",
+            "Quantity": "Quantity"
+        },
+        "Detail": {
+            "Title": "Edit you recycling!"
+        },
+        "List": {
+            "Add": "Add new recycle"
+        }
+    }
+}

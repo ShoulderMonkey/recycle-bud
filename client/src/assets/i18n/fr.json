@@ -1,0 +1,59 @@
+{
+    "Nav": {
+      "Menu": {
+        "Title": "Menu",
+        "Home": "Home",
+        "Transactions": "Transactions",
+        "Users": "Utilisateurs"
+      }
+    },
+    "Login": {
+      "Title": "Se connecter",
+      "Error": "E-mail ou mot de passe invalide",
+      "Actions": {
+        "Login": "Se connecter",
+        "Register": "Registre",
+        "Cancel": "Annuler"
+      }
+    },
+    "Register": {
+      "Errors": {
+        "Password": "Veuillez entrer votre nouveau mot de passe",
+        "PasswordConfirm": "Les mots de passe ne correspondent pas"
+      }
+    },
+    "Home": {
+      "Welcome": "Accueillir",
+      "Subtitle": " Vous l'avez actuellement recyclé jusqu'à présent !!!",
+      "Nothing": "Rien de recyclé pour l'instant.  "
+    },
+    "User": {
+      "Fields": {
+        "Email": "E-mail",
+        "Password": "Mot de passe",
+        "PasswordConfirm": "Confirmez le mot de passe",
+        "Firstname": "Prénom",
+        "Lastname": "Nom de famille"
+      },
+      "Detail": {
+        "Title": {
+          "New": "Création d'un nouvel utilisateur",
+          "Edit": "Mise à jour des détails de l'utilisateur"
+        }
+      }
+    },
+    "RecycledItem": {
+      "Fields": {
+        "Id": "Identifiant",
+        "Type": "Taper",
+        "Description": "Description",
+        "Quantity": "Quantité"
+      },
+      "Detail": {
+        "Title": "Editez votre recyclage !"
+      },
+      "List": {
+        "Add": "Ajouter un nouveau recyclage"
+      }
+    }
+  }

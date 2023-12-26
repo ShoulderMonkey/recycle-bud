@@ -20,10 +20,13 @@ import { ClientAuthModule } from './auth/client-auth.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RegisterComponent } from './login/register/register.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { JwtInterceptorService } from './auth/jwt-interceptor.service';
 import { SharedModule } from './shared/shared.module';
 import { RecycledItemModule } from './recycled-item/recycled-item.module';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {MatMenuModule} from '@angular/material/menu';
 
 const MATERIAL_MODULES = [
   MatIconModule,
@@ -34,9 +37,14 @@ const MATERIAL_MODULES = [
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
-  MatDialogModule
+  MatDialogModule,
+  MatMenuModule
 ]
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+export const LANGS = ['en', 'it', 'es', 'fr']
 @NgModule({
   declarations: [
     AppComponent, 
@@ -58,6 +66,13 @@ const MATERIAL_MODULES = [
       extendedTimeOut: 5000,
       positionClass: 'toast-top-right',
     }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
     HomeModule,
     ClientAuthModule.forRoot({
       authCookieName: 'app-auth'
@@ -73,4 +88,10 @@ const MATERIAL_MODULES = [
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(public translate: TranslateService) {
+    translate.addLangs(LANGS);
+    translate.use('en')
+    translate.setDefaultLang('en');
+  }
+}

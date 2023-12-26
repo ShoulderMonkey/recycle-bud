@@ -1,0 +1,59 @@
+{
+    "Nav": {
+      "Menu": {
+        "Title": "Menù",
+        "Home": "Home",
+        "Transactions": "Transazioni",
+        "Users": "Utenti"
+      }
+    },
+    "Login": {
+      "Title": "Login",
+      "Error": "E-mail o password non valide",
+      "Actions": {
+        "Login": "Login",
+        "Register": "Registrati",
+        "Cancel": "Annulla"
+      }
+    },
+    "Register": {
+      "Errors": {
+        "Password": "Inserisci la tua nuova password",
+        "PasswordConfirm": "le passwords non corrispondono"
+      }
+    },
+    "Home": {
+      "Welcome": "Benvenuto",
+      "Subtitle": " Finora lo hai riciclato!!!",
+      "Nothing": "Niente di riciclato finora.  "
+    },
+    "User": {
+      "Fields": {
+        "Email": "E-mail",
+        "Password": "Parola d'ordine",
+        "PasswordConfirm": "Conferma password",
+        "Firstname": "Nome di battesimo",
+        "Lastname": "Cognome"
+      },
+      "Detail": {
+        "Title": {
+          "New": "Creazione nuovo utente",
+          "Edit": "Aggiornamento dettagli utente"
+        }
+      }
+    },
+    "RecycledItem": {
+      "Fields": {
+        "Id": "Id",
+        "Type": "Tipo",
+        "Description": "Descrizione",
+        "Quantity": "Quantità"
+      },
+      "Detail": {
+        "Title": "Modifica il tuo riciclaggio!"
+      },
+      "List": {
+        "Add": "Aggiungi nuovo riciclo"
+      }
+    }
+  }

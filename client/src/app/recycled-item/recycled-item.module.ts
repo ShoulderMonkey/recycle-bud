@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { TranslateModule } from '@ngx-translate/core';
 
 const MATERIAL_MODULES = [
   MatIconModule,
@@ -16,6 +17,7 @@ const MATERIAL_MODULES = [
     RecycledItemsListComponent
   ],
   imports: [
+    TranslateModule,
     CommonModule,
     SharedModule,
     MATERIAL_MODULES

@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { RecycledItemDetailModalComponent } from '../../shared/recycled-item-detail-modal/recycled-item-detail-modal.component';
 import { RecycledItemService } from '../../services/recycled-item.service';
 import { AuthService } from '../../auth/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'recycle-bud-recycled-items-list',
@@ -21,22 +22,22 @@ export class RecycledItemsListComponent {
   columns: DatatableColumn<RecycledItem>[]=[
     {
       name: 'id',
-      title: of('Id'),
+      title: this.translate.get('RecycledItem.Fields.Id'),
       value: item => item.id
     },
     {
       name: 'type',
-      title: of('Type'),
+      title: this.translate.get('RecycledItem.Fields.Type'),
       value: item => item.type
     },
     {
       name: 'description',
-      title: of('Description'),
+      title: this.translate.get('RecycledItem.Fields.Description'),
       value: item => item.description
     },
     {
       name: 'quantity',
-      title: of('Quantity'),
+      title: this.translate.get('RecycledItem.Fields.Quantity'),
       value: item => item.quantity
     }
   ]
@@ -61,6 +62,7 @@ export class RecycledItemsListComponent {
   ]
 
   constructor(
+    private translate: TranslateService,
     private dialog: MatDialog,
     private recycledItemService: RecycledItemService,
     private authService: AuthService
