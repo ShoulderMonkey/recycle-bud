@@ -5,10 +5,10 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>{{'Nav.Menu.Title'| translate}}</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="home"><mat-icon>home</mat-icon>{{'Nav.Menu.Home'|translate}}</a>
-      <a mat-list-item href="list"><mat-icon>receipt_long</mat-icon>{{'Nav.Menu.Transactions'|translate}}</a>
+      <a mat-list-item routerLink="home"><mat-icon>home</mat-icon>{{'Nav.Menu.Home'|translate}}</a>
+      <a mat-list-item routerLink="list"><mat-icon>receipt_long</mat-icon>{{'Nav.Menu.Transactions'|translate}}</a>
       @if(isAdmin){
-        <a mat-list-item href="user"><mat-icon>group</mat-icon>{{'Nav.Menu.Users'|translate}}</a>
+        <a mat-list-item routerLink="user"><mat-icon>group</mat-icon>{{'Nav.Menu.Users'|translate}}</a>
       }
     </mat-nav-list>
   </mat-sidenav>
